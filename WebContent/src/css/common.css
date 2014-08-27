@@ -1,4 +1,4 @@
-fieldset {
+/* fieldset {
 	width: 700px;
 	height: 80px;
 	position: relative;
@@ -16,8 +16,30 @@ fieldset {
 	-moz-box-shadow: 3px 3px 10px #ccc;
 	-webkit-box-shadow: 3px 3px 10px #ccc
 }
-
+ */
 table,th {
 	border: 10px;
 	margin: 0 auto;
+}
+
+.profile {
+	float: left;
+}
+
+.profhdr {
+	margin-bottom: 20px;
+}
+
+.profname {
+	float: left;
+}
+
+span{
+	display: inline-block;
+	width: 150px;
+	margin-bottom: 20px;
+}
+.profdiv{
+	margin-left: 300px;
+	
 }

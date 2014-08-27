@@ -17,5 +17,56 @@
 			</table>
 		</div>
 	</div>
-	<div><a href="#/providers/">Back to Providers List</a></div>
+	<div>
+		<h3>Profiles</h3>
+		<table border='1'>
+			<tr>
+				<th>NAME</th>
+				<th>TYPE</th>
+				<th>PRIVATE?</th>
+				<th>DEINTERLACE_INPUT?</th>
+				<th>FRAME_RATE</th>
+				<th>MEZZANINE_MULTIPASS_ENCODING?</th>
+			</tr>
+			<tr ng-repeat="Profile in Profiles">
+				<td><a href="#/profile/{{Profile.profile_id}}">{{Profile.name}}</a></td>
+				<td>{{Profile.type}}</td>
+				<td>{{Profile.private}}</td>
+				<td>{{Profile.deinterlace_input}}</td>
+				<td>{{Profile.frame_rate}}</td>
+				<td>{{Profile.mezzanine_multipass_encoding}}</td>
+			</tr>
+		</table>
+	</div>
+	<div class='profile'>
+		<div class='profhdr'>NAME</div>
+		<div class='profhdr'>TYPE</div>
+		<div class='profhdr'>PRIVATE?</div>
+		<div class='profhdr'>DEINTERLACE INPUT?</div>
+		<div class='profhdr'>FRAME RATE</div>
+		<div class='profhdr'>MEZZANINE MULTIPASS ENCODING?</div>
+	</div>
+	<div class="profdiv">
+		<span ng-repeat="Profile in Profiles">{{Profile.name}}</span>
+	</div>
+	<div class="profdiv">
+		<span ng-repeat="Profile in Profiles">{{Profile.type}}</span>
+	</div>
+	<div class="profdiv">
+		<span ng-repeat="Profile in Profiles"><input type="checkbox"
+			ng-model="Profile.private" ng-true-value="1" ng-false-value="0"></span>
+	</div>
+	<div class="profdiv">
+		<span ng-repeat="Profile in Profiles">{{Profile.deinterlace_input}}</span>
+	</div>
+	<div class="profdiv">
+		<span ng-repeat="Profile in Profiles">{{Profile.frame_rate}}</span>
+	</div>
+	<div class="profdiv">
+		<span ng-repeat="Profile in Profiles">{{Profile.mezzanine_multipass_encoding}}</span>
+	</div>
+
+	<div>
+		<a href="#/providers/">Back to Providers List</a>
+	</div>
 </div>
