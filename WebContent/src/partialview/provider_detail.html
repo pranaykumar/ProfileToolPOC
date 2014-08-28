@@ -11,8 +11,11 @@
 				</tr>
 				<tr>
 					<td>{{provider_id}}</td>
-					<td>{{name}}</td>
-					<td>{{email}}</td>
+					<td><input type="text" placeholder="{{name}}"
+						ng-model="Provider.name"></td>
+					<td><input type="text" placeholder="{{email}}"
+						ng-model="Provider.email"></td>
+					<td><button ng-click="updateProviderDtl()">UPDATE</button></td>
 				</tr>
 			</table>
 		</div>
