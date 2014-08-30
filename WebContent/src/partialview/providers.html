@@ -1,40 +1,31 @@
 <div ng-controller='providersCntrl'>
 	<h2>Providers</h2>
 	<div class="container-fluid">
-		<div class="column">
-			<div class="one">
-				<!--Sidebar content-->
-
-				Search: <input ng-model="query"> Sort by: <select
-					ng-model="orderProp">
-					<option value="name">Alphabetical</option>
-				</select>
-
-			</div>
-			<div class="column">
-				<div class="two">
-					<!--Body content-->
-					<table border='1'>
-						<tr>
-							<th>ID</th>
-							<th>NAME</th>
-							<th>PROVIDER ID</th>
-							<th>EMAIL</th>
-						</tr>
-						<tr
-							ng-repeat="Provider in Providers | filter:query | orderBy:orderProp">
-							<td>{{Provider.id}}</td>
-							<td>{{Provider.name}}</td>
-							<td><a href="#/providers/{{Provider.provider_id}}">{{Provider.provider_id}}</a></td>
-							<td>{{Provider.email}}</td>
-						</tr>
-					</table>
-					<div>
-						<button>
-							<a href="#/providers/addprovider">ADD PROVIDER</a>
-						</button>
-					</div>
-				</div>
+		<div id="searchdiv">
+			<label>Search:</label> <input ng-model="query"> <label>Sort
+				by: </label><select ng-model="orderProp">
+				<option value="name">Alphabetical</option>
+			</select> <a href="#/providers/addprovider">ADD PROVIDER</a>
+		</div>
+		<div id="providerdiv">
+			<div class="two">
+				<!--Body content-->
+				<table border='1'>
+					<tr>
+						<th>ID</th>
+						<th>NAME</th>
+						<th>PROVIDER ID</th>
+						<th>EMAIL</th>
+					</tr>
+					<tr
+						ng-repeat="Provider in Providers | filter:query | orderBy:orderProp">
+						<td>{{Provider.id}}</td>
+						<td>{{Provider.name}}</td>
+						<td><a href="#/providers/{{Provider.provider_id}}">{{Provider.provider_id}}</a></td>
+						<td>{{Provider.email}}</td>
+					</tr>
+				</table>
 			</div>
 		</div>
 	</div>
+</div>
