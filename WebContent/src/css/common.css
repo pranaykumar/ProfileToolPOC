@@ -1,6 +1,7 @@
 body {
 	background-color: aliceblue;
 	background-image: url("./../images/background.png");
+	font-family: 'Ubuntu', sans-serif;
 }
 
 td {
@@ -83,7 +84,7 @@ label {
 	float: left;
 }
 
-span {
+.profdtl {
 	display: inline-block;
 	width: 150px;
 }
@@ -99,6 +100,12 @@ span {
 	font-family: 'Ubuntu', sans-serif;
 }
 
+.strmdiv {
+	border: 1px dotted;
+	margin: 20px;
+	padding: 10px;
+}
+
 fieldset {
 	border: 1px solid green;
 	width: 500px;
@@ -111,4 +118,8 @@ legend {
 	color: green;
 	font-size: 60%;
 	text-align: left;
+}
+
+#providerquery {
+	margin-right: 10px;
 }

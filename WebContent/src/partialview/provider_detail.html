@@ -23,7 +23,7 @@
 			</div>
 		</div>
 		<div>
-			<h3>Profiles</h3>			
+			<h3>Profiles</h3>
 		</div>
 		<div class='profile'>
 			<div class='profhdr'>NAME</div>
@@ -34,23 +34,41 @@
 			<div class='profhdr'>MEZZANINE MULTIPASS ENCODING?</div>
 		</div>
 		<div class="profdiv">
-			<span ng-repeat="Profile in Profiles"><a href="#/profile/{{Profile.profile_id}}">{{Profile.name}}</a></span>
+			<span class="profdtl" ng-repeat="Profile in Profiles"><a
+				href="#{{Profile.profile_id}}">{{Profile.name}}</a></span>
 		</div>
 		<div class="profdiv">
-			<span ng-repeat="Profile in Profiles">{{Profile.type}}</span>
+			<span class="profdtl" ng-repeat="Profile in Profiles">{{Profile.type}}</span>
 		</div>
 		<div class="profdiv">
-			<span ng-repeat="Profile in Profiles"><input type="checkbox"
-				ng-model="Profile.private" ng-true-value="1" ng-false-value="0"></span>
+			<span class="profdtl" ng-repeat="Profile in Profiles"><input
+				type="checkbox" ng-model="Profile.private" ng-true-value="1"
+				ng-false-value="0"></span>
 		</div>
 		<div class="profdiv">
-			<span ng-repeat="Profile in Profiles">{{Profile.deinterlace_input}}</span>
+			<span class="profdtl" ng-repeat="Profile in Profiles">{{Profile.deinterlace_input}}</span>
 		</div>
 		<div class="profdiv">
-			<span ng-repeat="Profile in Profiles">{{Profile.frame_rate}}</span>
+			<span class="profdtl" ng-repeat="Profile in Profiles">{{Profile.frame_rate}}</span>
 		</div>
 		<div class="profdiv">
-			<span ng-repeat="Profile in Profiles">{{Profile.mezzanine_multipass_encoding}}</span>
+			<span class="profdtl" ng-repeat="Profile in Profiles">{{Profile.mezzanine_multipass_encoding}}</span>
+		</div>
+	</div>
+	<div class="container-fluid">
+		<div class="strmdiv" ng-repeat="Profile in Profiles">
+			<div id={{Profile.profile_id}}>
+				<div ng-repeat="Stream in Profile.streams">
+					<div>name: {{Stream.name}}</div>
+					<div>muxing_format: {{Stream.muxing_format}}</div>
+					<div>profile: {{Stream.profile}}</div>
+					<div>audio sample rate: {{Stream.audio_sample_rate}}</div>
+					<div>audio bitrate: {{Stream.audio_bitrate}}</div>
+					<div>video bitrate: {{Stream.video_bitrate}}</div>
+					<div>video width: {{Stream.video_width}}</div>
+					<div>multipass encoding: {{Stream.multipass_encoding}}</div>
+				</div>
+			</div>
 		</div>
 	</div>
 </div>
