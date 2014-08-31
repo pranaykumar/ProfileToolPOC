@@ -77,3 +77,13 @@ myApp.controller('AddProviderCntrl', function($scope, $http) {
 		});
 	};
 });
+
+myApp.filter('booleanFormatter',function(){
+	var myBooleanFilter = function(input) {
+		if (input == 1)
+			return "True";
+		else
+			return "False";
+	};
+	return myBooleanFilter;
+});
