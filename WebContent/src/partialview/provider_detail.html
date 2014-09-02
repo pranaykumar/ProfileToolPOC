@@ -56,18 +56,22 @@
 		</div>
 	</div>
 	<div class="container-fluid">
+		<ul>
+			<li ng-repeat="Profile in Profiles">{{Profile.name}}</li>
+		</ul>
+
 		<div class="strmdiv" ng-repeat="Profile in Profiles">
-			<div id={{Profile.profile_id}}>
-				<div ng-repeat="Stream in Profile.streams">
-					<div>name: {{Stream.name}}</div>
-					<div>muxing_format: {{Stream.muxing_format}}</div>
-					<div>profile: {{Stream.profile}}</div>
-					<div>audio sample rate: {{Stream.audio_sample_rate}}</div>
-					<div>audio bitrate: {{Stream.audio_bitrate}}</div>
-					<div>video bitrate: {{Stream.video_bitrate}}</div>
-					<div>video width: {{Stream.video_width}}</div>
-					<div>multipass encoding: {{Stream.multipass_encoding | booleanFormatter}} </div>
-				</div>
+			<div class="strmdtldiv" ng-repeat="Stream in Profile.streams">
+				<div class="strmprops">name: {{Stream.name}}</div>
+				<div class="strmprops">muxing_format: {{Stream.muxing_format}}</div>
+				<div class="strmprops">profile: {{Stream.profile}}</div>
+				<div class="strmprops">audio sample rate:
+					{{Stream.audio_sample_rate}}</div>
+				<div class="strmprops">audio bitrate: {{Stream.audio_bitrate}}</div>
+				<div class="strmprops">video bitrate: {{Stream.video_bitrate}}</div>
+				<div class="strmprops">video width: {{Stream.video_width}}</div>
+				<div class="strmprops">multipass encoding:
+					{{Stream.multipass_encoding | booleanFormatter}}</div>
 			</div>
 		</div>
 	</div>

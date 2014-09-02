@@ -102,8 +102,19 @@ label {
 
 .strmdiv {
 	border: 1px dotted;
-	margin: 20px;
+	margin-top: 10px;
+	background-color: rosybrown;
 	padding: 10px;
+}
+
+.strmdtldiv {
+	border: 1px dotted black;
+	background-color: lightblue;
+	padding: 5px;
+}
+
+.strmprops {
+	padding: 5px 0px;
 }
 
 fieldset {
@@ -122,4 +133,17 @@ legend {
 
 #providerquery {
 	margin-right: 10px;
+}
+
+ul {
+	padding-left: 0px;
+}
+
+li {
+	display: inline-block;
+	padding: 12px;
+	background-color: ivory;
+	border-top-left-radius: 8px;
+	border-top-right-radius: 8px;
+	border: 1px solid gray;
 }
