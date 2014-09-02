@@ -1,5 +1,5 @@
 var myApp = angular.module('myApp', []);
-var IP = 'restip';
+var IP = '172.21.248.67';
 
 myApp.config([ '$routeProvider', function($routeProvider) {
 	$routeProvider.when('/providers', {
@@ -22,7 +22,7 @@ myApp.controller('providersCntrl', function($scope, $http) {
 	});
 });
 
-myApp.controller('providerDtlCntrl', function($scope, $http, $routeParams) {
+myApp.controller('providerDtlCntrl', function($scope, $http, $routeParams,ProfileService) {
 	$http.get(
 			'http://' + IP + ':3000/api/providers/' + $routeParams.provider_id)
 			.success(function(data) {
@@ -32,11 +32,7 @@ myApp.controller('providerDtlCntrl', function($scope, $http, $routeParams) {
 				$scope.email = data[0].email;
 			});
 
-	$http.get(
-			'http://' + IP + ':3000/api/providers/' + $routeParams.provider_id
-					+ '/profiles').success(function(data) {
-		$scope.Profiles = data;
-	});
+	$scope.Profiles = ProfileService.getProfiles($routeParams.provider_id);
 
 	$scope.updateProviderDtl = function() {
 		$http(
@@ -76,6 +72,29 @@ myApp.controller('AddProviderCntrl', function($scope, $http) {
 			alert(data[0].msg);
 		});
 	};
+});
+
+//ProfileService to return Profiles for a provider_id
+myApp.factory('ProfileService', function ($http, $q) {
+    return {
+        getProfiles: function(provider_id) {
+            // the $http API is based on the deferred/promise APIs exposed by the $q service
+            // so it returns a promise for us by default
+            return $http.get('http://' + IP + ':3000/api/providers/' +provider_id+ '/profiles')
+                .then(function(response) {
+                    if (typeof response.data === 'object') {
+                        return response.data;
+                    } else {
+                        // invalid response
+                        return $q.reject(response.data);
+                    }
+
+                }, function(response) {
+                    // something went wrong
+                    return $q.reject(response.data);
+            	});
+        }
+    };
 });
 
 myApp.filter('booleanFormatter',function(){
