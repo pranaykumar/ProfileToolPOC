@@ -101,10 +101,11 @@ label {
 }
 
 .strmdiv {
-	border: 1px dotted;
-	margin-top: 10px;
-	background-color: rosybrown;
-	padding: 10px;
+	background-color: ivory;
+	padding: 15px;
+	border-bottom-right-radius: 8px;
+	border-top-right-radius: 8px;
+	border-bottom-left-radius: 8px;
 }
 
 .strmdtldiv {
@@ -137,13 +138,15 @@ legend {
 
 ul {
 	padding-left: 0px;
+	margin-bottom: 0px;
 }
 
 li {
 	display: inline-block;
-	padding: 12px;
-	background-color: ivory;
+	padding: 10px;
+	background-color: lightgray;
 	border-top-left-radius: 8px;
 	border-top-right-radius: 8px;
-	border: 1px solid gray;
+	border-right: 4px solid gray;
+}
 }

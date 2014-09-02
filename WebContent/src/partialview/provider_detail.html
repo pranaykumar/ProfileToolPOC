@@ -57,21 +57,45 @@
 	</div>
 	<div class="container-fluid">
 		<ul>
-			<li ng-repeat="Profile in Profiles">{{Profile.name}}</li>
+			<li ng-repeat="Profile in Profiles" ng-click="showTab($index)"
+				ng-style="tabStyles[$index]">{{Profile.name}}</li>
 		</ul>
 
-		<div class="strmdiv" ng-repeat="Profile in Profiles">
+		<div class='profile'>
+			<div class='profhdr'>NAME</div>
+			<div class='profhdr'>MUXING FORMAT</div>
+			<div class='profhdr'>PROFILE</div>
+			<div class='profhdr'>AUDIO SAMPLE RATE</div>
+			<div class='profhdr'>AUDIO BITRATE</div>
+			<div class='profhdr'>VIDEO BITRATE</div>
+			<div class='profhdr'>VIDEO WIDTH</div>
+			<div class='profhdr'>KEYFRAME INTERVAL SEC</div>
+			<div class='profhdr'>WATERMARK</div>
+			<div class='profhdr'>MULTIPASS ENCODING</div>
+			<div class='profhdr'>SEGMENT LENGTH SEC</div>
+			<div class='profhdr'>ENCRYPT</div>
+			<div class='profhdr'>KEY ROTATION PERIOD</div>
+			<div class='profhdr'>VIDEO ENCRYPTION LEVEL</div>
+		</div>
+
+		<div class="strmdiv" ng-repeat="Profile in Profiles"
+			ng-show="tabDisplayFlags[$index]">
 			<div class="strmdtldiv" ng-repeat="Stream in Profile.streams">
-				<div class="strmprops">name: {{Stream.name}}</div>
-				<div class="strmprops">muxing_format: {{Stream.muxing_format}}</div>
-				<div class="strmprops">profile: {{Stream.profile}}</div>
-				<div class="strmprops">audio sample rate:
-					{{Stream.audio_sample_rate}}</div>
-				<div class="strmprops">audio bitrate: {{Stream.audio_bitrate}}</div>
-				<div class="strmprops">video bitrate: {{Stream.video_bitrate}}</div>
-				<div class="strmprops">video width: {{Stream.video_width}}</div>
-				<div class="strmprops">multipass encoding:
-					{{Stream.multipass_encoding | booleanFormatter}}</div>
+				<div class="strmprops">{{Stream.name}}</div>
+				<div class="strmprops">{{Stream.muxing_format}}</div>
+				<div class="strmprops">{{Stream.profile}}</div>
+				<div class="strmprops">{{Stream.audio_sample_rate}}</div>
+				<div class="strmprops">{{Stream.audio_bitrate}}</div>
+				<div class="strmprops">{{Stream.video_bitrate}}</div>
+				<div class="strmprops">{{Stream.video_width}}</div>
+				<div class="strmprops">{{Stream.keyframe_interval_sec}}</div>
+				<div class="strmprops">{{Stream.watermark}}</div>
+				<div class="strmprops">{{Stream.multipass_encoding |
+					booleanFormatter}}</div>
+				<div class="strmprops">{{Stream.segment_length_sec}}</div>
+				<div class="strmprops">{{Stream.encrypt}}</div>
+				<div class="strmprops">{{Stream.key_rotation_period}}</div>
+				<div class="strmprops">{{Stream.video_encryption_level}}</div>
 			</div>
 		</div>
 	</div>

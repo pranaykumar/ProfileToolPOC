@@ -22,7 +22,8 @@ myApp.controller('providersCntrl', function($scope, $http) {
 	});
 });
 
-myApp.controller('providerDtlCntrl', function($scope, $http, $routeParams,ProfileService) {
+myApp.controller('providerDtlCntrl', function($scope, $http, $routeParams,
+		ProfileService) {
 	$http.get(
 			'http://' + IP + ':3000/api/providers/' + $routeParams.provider_id)
 			.success(function(data) {
@@ -51,6 +52,25 @@ myApp.controller('providerDtlCntrl', function($scope, $http, $routeParams,Profil
 			alert(data[0].msg);
 		});
 	};
+
+	$scope.tabDisplayFlags = [];
+	$scope.tabStyles = [];
+
+	$scope.tabDisplayFlags[0] = true;
+	$scope.tabStyles[0] = {
+		'background-color' : 'ivory',
+	};
+
+	$scope.showTab = function(tabindex) {
+		$scope.tabDisplayFlags = [];
+		$scope.tabStyles = [];
+		$scope.tabDisplayFlags[tabindex] = true;
+		$scope.tabStyles[tabindex] = {
+			'background-color' : 'ivory',
+		};
+
+		console.log('tab index selected is' + tabindex);
+	};
 });
 
 myApp.controller('AddProviderCntrl', function($scope, $http) {
@@ -74,30 +94,32 @@ myApp.controller('AddProviderCntrl', function($scope, $http) {
 	};
 });
 
-//ProfileService to return Profiles for a provider_id
-myApp.factory('ProfileService', function ($http, $q) {
-    return {
-        getProfiles: function(provider_id) {
-            // the $http API is based on the deferred/promise APIs exposed by the $q service
-            // so it returns a promise for us by default
-            return $http.get('http://' + IP + ':3000/api/providers/' +provider_id+ '/profiles')
-                .then(function(response) {
-                    if (typeof response.data === 'object') {
-                        return response.data;
-                    } else {
-                        // invalid response
-                        return $q.reject(response.data);
-                    }
+// ProfileService to return Profiles for a provider_id
+myApp.factory('ProfileService', function($http, $q) {
+	return {
+		getProfiles : function(provider_id) {
+			// the $http API is based on the deferred/promise APIs exposed by
+			// the $q service
+			// so it returns a promise for us by default
+			return $http.get(
+					'http://' + IP + ':3000/api/providers/' + provider_id
+							+ '/profiles').then(function(response) {
+				if (typeof response.data === 'object') {
+					return response.data;
+				} else {
+					// invalid response
+					return $q.reject(response.data);
+				}
 
-                }, function(response) {
-                    // something went wrong
-                    return $q.reject(response.data);
-            	});
-        }
-    };
+			}, function(response) {
+				// something went wrong
+				return $q.reject(response.data);
+			});
+		}
+	};
 });
 
-myApp.filter('booleanFormatter',function(){
+myApp.filter('booleanFormatter', function() {
 	var myBooleanFilter = function(input) {
 		if (input == 1)
 			return "True";
