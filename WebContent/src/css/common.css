@@ -75,8 +75,8 @@ label {
 
 .profhdr {
 	background-color: lightgray;
-	margin: 1px;
-	padding: 6px 5px;
+	 margin: 1px;
+    padding: 6px 5px;
 	font-family: 'Ubuntu', sans-serif;
 }
 
@@ -102,9 +102,10 @@ label {
 
 .strmhdr {
 	background-color: lightgray;
-	margin: 1px;
-	padding: 6px 5px;
-	font-family: 'Ubuntu', sans-serif;
+    cursor: default;
+    height: 18px;
+    margin: 1px;
+    padding: 6px 5px;
 }
 
 .strmdiv {
@@ -128,6 +129,7 @@ label {
 	margin: 1px;
 	height: 18px;
 	text-align: center;
+	cursor: default;
 }
 
 fieldset {
@@ -160,4 +162,5 @@ li {
 	border-top-left-radius: 8px;
 	border-top-right-radius: 8px;
 	border-right: 4px solid gray;
+	cursor: pointer;
 }
