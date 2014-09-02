@@ -62,41 +62,44 @@
 		</ul>
 
 		<div class='profile'>
-			<div class='profhdr'>NAME</div>
-			<div class='profhdr'>MUXING FORMAT</div>
-			<div class='profhdr'>PROFILE</div>
-			<div class='profhdr'>AUDIO SAMPLE RATE</div>
-			<div class='profhdr'>AUDIO BITRATE</div>
-			<div class='profhdr'>VIDEO BITRATE</div>
-			<div class='profhdr'>VIDEO WIDTH</div>
-			<div class='profhdr'>KEYFRAME INTERVAL SEC</div>
-			<div class='profhdr'>WATERMARK</div>
-			<div class='profhdr'>MULTIPASS ENCODING</div>
-			<div class='profhdr'>SEGMENT LENGTH SEC</div>
-			<div class='profhdr'>ENCRYPT</div>
-			<div class='profhdr'>KEY ROTATION PERIOD</div>
-			<div class='profhdr'>VIDEO ENCRYPTION LEVEL</div>
+			<div class='strmhdr'>NAME</div>
+			<div class='strmhdr'>MUXING FORMAT</div>
+			<div class='strmhdr'>PROFILE</div>
+			<div class='strmhdr'>AUDIO SAMPLE RATE</div>
+			<div class='strmhdr'>AUDIO BITRATE</div>
+			<div class='strmhdr'>VIDEO BITRATE</div>
+			<div class='strmhdr'>VIDEO WIDTH</div>
+			<div class='strmhdr'>KEYFRAME INTERVAL SEC</div>
+			<div class='strmhdr'>WATERMARK</div>
+			<div class='strmhdr'>MULTIPASS ENCODING</div>
+			<div class='strmhdr'>SEGMENT LENGTH SEC</div>
+			<div class='strmhdr'>ENCRYPT</div>
+			<div class='strmhdr'>KEY ROTATION PERIOD</div>
+			<div class='strmhdr'>VIDEO ENCRYPTION LEVEL</div>
 		</div>
 
-		<div class="strmdiv" ng-repeat="Profile in Profiles"
-			ng-show="tabDisplayFlags[$index]">
-			<div class="strmdtldiv" ng-repeat="Stream in Profile.streams">
-				<div class="strmprops">{{Stream.name}}</div>
-				<div class="strmprops">{{Stream.muxing_format}}</div>
-				<div class="strmprops">{{Stream.profile}}</div>
-				<div class="strmprops">{{Stream.audio_sample_rate}}</div>
-				<div class="strmprops">{{Stream.audio_bitrate}}</div>
-				<div class="strmprops">{{Stream.video_bitrate}}</div>
-				<div class="strmprops">{{Stream.video_width}}</div>
-				<div class="strmprops">{{Stream.keyframe_interval_sec}}</div>
-				<div class="strmprops">{{Stream.watermark}}</div>
-				<div class="strmprops">{{Stream.multipass_encoding |
-					booleanFormatter}}</div>
-				<div class="strmprops">{{Stream.segment_length_sec}}</div>
-				<div class="strmprops">{{Stream.encrypt}}</div>
-				<div class="strmprops">{{Stream.key_rotation_period}}</div>
-				<div class="strmprops">{{Stream.video_encryption_level}}</div>
-			</div>
+		<div>
+			<ul class="strmdiv" ng-repeat="Profile in Profiles"
+				ng-show="tabDisplayFlags[$index]">
+				<li class="strmdtldiv" ng-repeat="Stream in Profile.streams">
+					<div class="strmprops">{{Stream.name}}</div>
+					<div class="strmprops">{{Stream.muxing_format}}</div>
+					<div class="strmprops">{{Stream.profile}}</div>
+					<div class="strmprops">{{Stream.audio_sample_rate}}</div>
+					<div class="strmprops">{{Stream.audio_bitrate}}</div>
+					<div class="strmprops">{{Stream.video_bitrate}}</div>
+					<div class="strmprops">{{Stream.video_width}}</div>
+					<div class="strmprops">{{Stream.keyframe_interval_sec}}</div>
+					<div class="strmprops">{{Stream.watermark}}</div>
+					<div class="strmprops">{{Stream.multipass_encoding |
+						booleanFormatter}}</div>
+					<div class="strmprops">{{Stream.segment_length_sec}}</div>
+					<div class="strmprops">{{Stream.encrypt}}</div>
+					<div class="strmprops">{{Stream.key_rotation_period}}</div>
+					<div class="strmprops">{{Stream.video_encryption_level}}</div>
+				</li>
+			</ul>
+
 		</div>
 	</div>
 </div>

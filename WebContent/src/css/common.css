@@ -76,7 +76,7 @@ label {
 .profhdr {
 	background-color: lightgray;
 	margin: 1px;
-	padding: 10px 5px;
+	padding: 6px 5px;
 	font-family: 'Ubuntu', sans-serif;
 }
 
@@ -94,28 +94,40 @@ label {
 	margin-bottom: 1px;
 	margin-left: 280px;
 	margin-top: 1px;
-	padding: 10px 5px;
+	padding: 6px 5px;
 	width: 310px;
 	text-align: center;
 	font-family: 'Ubuntu', sans-serif;
 }
 
+.strmhdr {
+	background-color: lightgray;
+	margin: 1px;
+	padding: 6px 5px;
+	font-family: 'Ubuntu', sans-serif;
+}
+
 .strmdiv {
-	background-color: ivory;
-	padding: 15px;
-	border-bottom-right-radius: 8px;
-	border-top-right-radius: 8px;
-	border-bottom-left-radius: 8px;
+	margin-top: 0px;
 }
 
 .strmdtldiv {
-	border: 1px dotted black;
-	background-color: lightblue;
-	padding: 5px;
+	padding: 0px;
+	border-top-left-radius: 0px;
+	border-top-right-radius: 0px;
+	border-top-left-radius: 0px;
+	border-right: 0px solid gray;
+	width: 270px;
+	vertical-align: top;
+	margin-top: 0px;
 }
 
 .strmprops {
-	padding: 5px 0px;
+	background-color: lightblue;
+	padding: 6px 5px;
+	margin: 1px;
+	height: 18px;
+	text-align: center;
 }
 
 fieldset {
@@ -148,5 +160,4 @@ li {
 	border-top-left-radius: 8px;
 	border-top-right-radius: 8px;
 	border-right: 4px solid gray;
-}
 }
