@@ -57,6 +57,52 @@ myApp.controller('providerDtlCntrl', function($scope, $http, $routeParams,
 		});
 	};
 
+	//Adding frame rate Array
+	$scope.selected = {
+			Framerate :'120'
+	};
+	$scope.framerates = [{value :'24', displayName : '24p'},
+	                     {value :'36', displayName : '36p'},
+	                     {value :'40', displayName : '40p'},
+	                     {value :'46', displayName : '46p'},
+	                     {value :'50', displayName : '50p'},
+	                     {value :'60', displayName : '60p'},
+	                     {value :'120', displayName : '120p'}];
+	$scope.select = $scope.selected.Framerate;
+	
+	//Muxing Formats
+	$scope.MuxFormates =[{title:'MP4'},
+	                     {title:'MP3'},
+	                     {title:'MKV'},
+	                     {title:'AVI'}
+	                     ];
+	
+	//Audio Bitrate
+	$scope.AudioBitrates =[{title:'32kbit/s'},
+	                       {title:'96kbit/s'},
+	                       {title:'128 or 160 kbit/s'},
+	                       {title:'192kbit/s'},
+	                       {title:'320kbit/s'},];
+	//Video Bitrate
+	$scope.VideoBitrates =[{title:'16kbit/s'},
+	                       {title:'128-384kbit/s'},
+	                       {title:'1.15Mbit/s'},
+	                       {title:'3.5Mbit/s'},
+	                       {title:'9.8Mbit/s'},
+	                       {title:'8-15Mbit/s'},
+	                       {title:'19Mbit/s'},
+	                       {title:'24Mbit/s'},
+	                       {title:'25Mbit/s'},
+	                       {title:'29.4Mbit/s'},
+	                       {title:'40Mbit/s'},
+	                       ];
+	//KeyFrame Intervals
+	$scope.KeyFrameIntervals =[{timeperiod:'5sec'},
+	                           {timeperiod:'10sec'},
+	                           {timeperiod:'15sec'},
+	                           {timeperiod:'20sec'},
+	                           ];
+	
 	$scope.tabDisplayFlags = [];
 	$scope.tabStyles = [];
 

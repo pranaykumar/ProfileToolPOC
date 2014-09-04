@@ -35,7 +35,8 @@
 		</div>
 		<div class="profdiv">
 			<span class="profdtl" ng-repeat="Profile in Profiles"><a
-				href="#{{Profile.profile_id}}">{{Profile.name}}</a></span>
+				href="#{{Profile.profile_id}}"><input type="text"
+					placeholder="{{Profile.name}}"></a></span>
 		</div>
 		<div class="profdiv">
 			<span class="profdtl" ng-repeat="Profile in Profiles">{{Profile.type}}</span>
@@ -43,16 +44,23 @@
 		<div class="profdiv">
 			<span class="profdtl" ng-repeat="Profile in Profiles"><input
 				type="checkbox" ng-model="Profile.private" ng-true-value="1"
-				ng-false-value="0"></span>
+				ng-false-value="0" ng-change="setProf_PrivateValue()"></span>
 		</div>
 		<div class="profdiv">
-			<span class="profdtl" ng-repeat="Profile in Profiles">{{Profile.deinterlace_input}}</span>
+			<span class="profdtl" ng-repeat="Profile in Profiles"><input
+				type="checkbox" ng-model="Profile.deinterlace_input"
+				ng-true-value="1" ng-false-value="0"></span>
 		</div>
 		<div class="profdiv">
-			<span class="profdtl" ng-repeat="Profile in Profiles">{{Profile.frame_rate}}</span>
+			<span class="profdtl" ng-repeat="Profile in Profiles"><select
+				ng-model="selected.Framerate"><option
+						ng-selected="{{framerate.value == selected.Framerate }}"
+						ng-repeat="framerate in framerates" value="{{framerate.value}}">{{framerate.displayName}}</option></select></span>
 		</div>
 		<div class="profdiv">
-			<span class="profdtl" ng-repeat="Profile in Profiles">{{Profile.mezzanine_multipass_encoding}}</span>
+			<span class="profdtl" ng-repeat="Profile in Profiles"><input
+				type="checkbox" ng-model="Profile.mezzanine_multipass_encoding"
+				ng-true-value="1" ng-false-value="0"></span>
 		</div>
 	</div>
 	<div class="container-fluid">
@@ -82,15 +90,15 @@
 			<ul class="strmdiv" ng-repeat="Profile in Profiles"
 				ng-show="tabDisplayFlags[$index]">
 				<li class="strmdtldiv" ng-repeat="Stream in Profile.streams">
-					<div class="strmprops">{{Stream.name}}</div>
-					<div class="strmprops">{{Stream.muxing_format}}</div>
+					<div class="strmprops"><input type="text" placeholder="{{Stream.name}}"></div>
+					<div class="strmprops"><select ng-model="mySelection" ng-options="MuxFormate.title for MuxFormate  in MuxFormates"></select></div>
 					<div class="strmprops">{{Stream.profile}}</div>
 					<div class="strmprops">{{Stream.audio_sample_rate}}</div>
-					<div class="strmprops">{{Stream.audio_bitrate}}</div>
-					<div class="strmprops">{{Stream.video_bitrate}}</div>
+					<div class="strmprops"><select ng-model="AudioBitrate" ng-options="AudioBitrate.title for AudioBitrate  in AudioBitrates"></select></div>
+					<div class="strmprops"><select ng-model="VideoBitrate" ng-options="VideoBitrate.title for VideoBitrate  in VideoBitrates"></select></div>
 					<div class="strmprops">{{Stream.video_width}}</div>
-					<div class="strmprops">{{Stream.keyframe_interval_sec}}</div>
-					<div class="strmprops">{{Stream.watermark}}</div>
+					<div class="strmprops"><select ng-model="KeyFrameI" ng-options="KeyFrameI.timeperiod for KeyFrameI  in KeyFrameIntervals"></select></div>
+					<div class="strmprops"><input type="checkbox" ng-model="Stream.watermark" ng-true-value="1" ng-false-value="0"></div>
 					<div class="strmprops">{{Stream.multipass_encoding |
 						booleanFormatter}}</div>
 					<div class="strmprops">{{Stream.segment_length_sec}}</div>

@@ -75,8 +75,8 @@ label {
 
 .profhdr {
 	background-color: lightgray;
-	 margin: 1px;
-    padding: 6px 5px;
+	margin: 1px;
+	padding: 6px 5px;
 	font-family: 'Ubuntu', sans-serif;
 }
 
@@ -94,18 +94,18 @@ label {
 	margin-bottom: 1px;
 	margin-left: 280px;
 	margin-top: 1px;
-	padding: 6px 5px;
+	padding: 6px 5px 6px 10px;
 	width: 310px;
-	text-align: center;
+	text-align: left;
 	font-family: 'Ubuntu', sans-serif;
 }
 
 .strmhdr {
 	background-color: lightgray;
-    cursor: default;
-    height: 18px;
-    margin: 1px;
-    padding: 6px 5px;
+	cursor: default;
+	height: 18px;
+	margin: 1px;
+	padding: 6px 5px;
 }
 
 .strmdiv {
@@ -125,10 +125,10 @@ label {
 
 .strmprops {
 	background-color: lightblue;
-	padding: 6px 5px;
+	padding: 6px 5px 6px 10px;
 	margin: 1px;
 	height: 18px;
-	text-align: center;
+	text-align: left;
 	cursor: default;
 }
 
