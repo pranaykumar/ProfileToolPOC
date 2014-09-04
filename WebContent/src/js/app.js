@@ -33,7 +33,11 @@ myApp.controller('providerDtlCntrl', function($scope, $http, $routeParams,
 				$scope.email = data[0].email;
 			});
 
-	$scope.Profiles = ProfileService.getProfiles($routeParams.provider_id);
+	// $scope.Profiles = ProfileService.getProfiles($routeParams.provider_id);
+	// Updated to call the service and wait for it to finish and then populate the Profiles variable in scope using a callback
+	ProfileService.getProfiles($routeParams.provider_id).then(function(data) {
+		$scope.Profiles = data;
+	});
 
 	$scope.updateProviderDtl = function() {
 		$http(
@@ -71,6 +75,7 @@ myApp.controller('providerDtlCntrl', function($scope, $http, $routeParams,
 
 		console.log('tab index selected is' + tabindex);
 	};
+
 });
 
 myApp.controller('AddProviderCntrl', function($scope, $http) {
