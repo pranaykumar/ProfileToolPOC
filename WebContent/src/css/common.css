@@ -86,18 +86,22 @@ label {
 
 .profdtl {
 	display: inline-block;
-	width: 150px;
+	width: 173px;
+	padding: 4px 5px;
+	border-bottom: 1px solid lightgrey;
+	height: 22px;
 }
 
 .profdiv {
 	background-color: lightblue;
 	margin-bottom: 1px;
-	margin-left: 280px;
-	margin-top: 1px;
-	padding: 6px 5px 6px 10px;
-	width: 310px;
+	margin-left: 2px;
+	margin-top: 0px;
+	width: 186px;
 	text-align: left;
 	font-family: 'Ubuntu', sans-serif;
+	border-right: 0px solid gray;
+	display: inline-block;
 }
 
 .strmhdr {
@@ -121,6 +125,7 @@ label {
 	width: 270px;
 	vertical-align: top;
 	margin-top: 0px;
+	display: inline-block;
 }
 
 .strmprops {
@@ -155,7 +160,7 @@ ul {
 	margin-bottom: 0px;
 }
 
-li {
+.TabProf {
 	display: inline-block;
 	padding: 10px;
 	background-color: lightgray;
@@ -163,4 +168,15 @@ li {
 	border-top-right-radius: 8px;
 	border-right: 4px solid gray;
 	cursor: pointer;
+	border-top-right-radius: 8px;
+}
+
+input[type="text"],.dummy {
+	width: 90px;
+    min-width: 150px;
+    max-width: 300px;
+    transition: width 0.25s;
+}
+.dummy{
+	visibility:hidden; 
 }
