@@ -11,10 +11,8 @@
 				</tr>
 				<tr>
 					<td>{{provider_id}}</td>
-					<td><input type="text" placeholder="{{name}}"
-						ng-model="Provider.name"></td>
-					<td><input type="text" placeholder="{{email}}"
-						ng-model="Provider.email"></td>
+					<td><input type="text" ng-model="provider_name"></td>
+					<td><input type="text" ng-model="provider_email"></td>
 					<td><button ng-click="updateProviderDtl()">UPDATE</button></td>
 				</tr>
 			</table>
@@ -37,7 +35,7 @@
 			<ul>
 				<li class="profdiv" ng-repeat="Profile in Profiles">
 					<div class="profdtl">
-						<input type="text" placeholder="{{Profile.name}}">
+						<input type="text" value="{{Profile.name}}">
 					</div>
 					<div class="profdtl">{{Profile.type}}</div>
 					<div class="profdtl">
@@ -91,7 +89,7 @@
 				ng-show="tabDisplayFlags[$index]">
 				<li class="strmdtldiv" ng-repeat="Stream in Profile.streams">
 					<div class="strmprops">
-						<input type="text" placeholder="{{Stream.name}}">
+						<input type="text" value="{{Stream.name}}">
 					</div>
 					<div class="strmprops">
 						<select ng-model="mySelection"

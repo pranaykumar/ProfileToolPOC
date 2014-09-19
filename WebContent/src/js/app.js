@@ -29,8 +29,8 @@ myApp.controller('providerDtlCntrl', function($scope, $http, $routeParams,
 			.success(function(data) {
 				console.log(data);
 				$scope.provider_id = data[0].provider_id;
-				$scope.name = data[0].name;
-				$scope.email = data[0].email;
+				$scope.provider_name = data[0].name;
+				$scope.provider_email = data[0].email;
 			});
 
 	// $scope.Profiles = ProfileService.getProfiles($routeParams.provider_id);
@@ -46,8 +46,8 @@ myApp.controller('providerDtlCntrl', function($scope, $http, $routeParams,
 					url : 'http://' + IP + ':3000/api/providers/'
 							+ $routeParams.provider_id,
 					data : {
-						"name" : $scope.Provider.name,
-						"email" : $scope.Provider.email,
+						"name" : $scope.provider_name,
+						"email" : $scope.provider_email,
 					},
 					headers : {
 						'content-type' : 'application/json'
@@ -125,10 +125,10 @@ myApp.controller('providerDtlCntrl', function($scope, $http, $routeParams,
 });
 
 myApp.controller('AddProviderCntrl', function($scope, $http) {
-	$scope.name = 'Enter Provider Name';
-	$scope.email = 'Enter Vaild Email';
+	$scope.name = '';
+	$scope.email = '';
 
-	$scope.insertData = function() {
+	$scope.addProvider = function() {
 		$http({
 			method : 'POST',
 			url : 'http://' + IP + ':3000/api/providers',

@@ -1,8 +1,19 @@
-<form>
+<form name="addProviderFrm">
 	<div ng-controller="AddProviderCntrl">
-		<h3>Posting the Data using AngularJS</h3>
-		Enter Provider Name <input type="text" ng-model="name"><br>
-		Enter Email ID <input type="text" ng-model="email"><br>
-		<button ng-click="insertData()"><a href="#/providers">Submit</a></button>
+		<h3>Add new Provider</h3>
+		<table>
+			<tr>
+				<td>Enter Provider Name</td>
+				<td><input type="text" placeholder="-Enter Name-" ng-model="name" required></td>
+			</tr>
+			<tr>
+				<td>Enter Email ID</td>
+				<td><input type="email" placeholder="-Enter Valid E-mail-" ng-model="email" required></td>
+			</tr>
+		</table>
+		<br>
+		<button ng-click="addProvider()" ng-disabled="!addProviderFrm.$valid">
+			Submit</button>
+		<br><br> <a href="#/providers/">Back to Providers List</a>
 	</div>
 </form>
