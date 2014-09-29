@@ -1,0 +1,33 @@
+<div ng-controller="providers1Cntrl">
+	<div id='hdrdiv'>
+		<img alt="logo" src="ooyala-logo.png">
+	</div>
+	<form class="form-inline" role="form">
+		<div class="form-group">
+		<label for="exampleFilter">ProviderID Selection</label>
+			<input type="search" class="form-control"
+				placeholder="Search For Provider..." ng-model="Provider_search_string">
+			<button type="submit" class="btn btn-default" ng-click="searchFun()">Search</button>
+		</div>
+		<div class="form-horizontal">
+			<label for="exampleFilter">Filter</label> <input type="search"
+				class="form-control" placeholder="Search For Provider..."
+				ng-model="Filterquery">
+		</div>
+	</form>
+	<div class="gridclass">
+		<table class="table table-striped">
+			<tr>
+				<th>NAME</th>
+				<th>EMAIL</th>
+			</tr>
+			<tr ng-repeat="Provider in Search_Result| filter:Filterquery">
+				<td><a href="#/providers/{{Provider.provider_id}}">{{Provider.name}}</a></td>
+				<td>{{Provider.email}}</td>
+			</tr>
+		</table>
+	</div>
+	<script type="text/javascript"
+		src="http://ajax.googleapis.com/ajax/libs/angularjs/1.0.7/angular.min.js"></script>
+	<script type="text/javascript" src="Controller.js"></script>
+</div>

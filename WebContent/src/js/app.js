@@ -11,6 +11,9 @@ myApp.config([ '$routeProvider', function($routeProvider) {
 	}).when('/providers/:provider_id', {
 		templateUrl : 'partialview/provider_detail.html',
 		controller : 'providerDtlCntrl'
+	}).when('/dashboard', {
+		templateUrl : 'partialview/Dashboard.html',
+		controller : 'providers1Cntrl'
 	}).otherwise({
 		redirectTo : '/providers'
 	});
@@ -20,6 +23,19 @@ myApp.controller('providersCntrl', function($scope, $http) {
 	$http.get('http://' + IP + ':3000/api/providers').success(function(data) {
 		$scope.Providers = data;
 	});
+});
+
+myApp.controller('providers1Cntrl', function($scope, $http) {
+	$scope.Provider_search_string = '';
+	$scope.searchFun = function() {
+		$http.get(
+				'http://' + IP + ':3000/api/providersearch/'
+						+ $scope.Provider_search_string).success(
+				function(data) {
+					$scope.Search_Result = data;
+				});
+	};
+	console.log($scope.Provider_search_string);
 });
 
 myApp.controller('providerDtlCntrl', function($scope, $http, $routeParams,
@@ -179,3 +195,5 @@ myApp.filter('booleanFormatter', function() {
 	};
 	return myBooleanFilter;
 });
+
+
